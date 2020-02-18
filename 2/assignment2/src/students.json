@@ -1,0 +1,73 @@
+var json = {
+  "group": "students",
+  "data": [
+    {
+      "name": "Aaron Geronimo",
+      "value": "aaronj9"
+    },
+    {
+      "name": "Keanuikapomekahaahaa Williams",
+      "value": "kwill30"
+    },
+    {
+      "name": "Alton Lee",
+      "value": "altonlee"
+    },
+    {
+      "name": "Christopher Na",
+      "value": "cjna"
+    },
+    {
+      "name": "Dennis Kim",
+      "value": "dmk2"
+    },
+    {
+      "name": "Sunny Siu",
+      "value": "sunnysiu"
+    },
+    {
+      "name": "Sollie Garcia",
+      "value": "sollie"
+    },
+    {
+      "name": "Sophia Kim",
+      "value": "sophiak8"
+    },
+    {
+      "name": "Jeffrey Suen",
+      "value": "sj39"
+    },
+    {
+      "name": "Derek Nishimoto",
+      "value": "derekcn"
+    },
+    {
+      "name": "Kain Yogi",
+      "value": "kainyogi"
+    },
+    {
+      "name": "Anthony Cathers",
+      "value": "acathers"
+    },
+    {
+      "name": "Jan Iverson Eligio",
+      "value": "jeligio"
+    },
+    {
+      "name": "Cal Maruyama",
+      "value": "calmaruy"
+    },
+    {
+      "name": "Hoku Tobin",
+      "value": "htobin"
+    },
+    {
+      "name": "Aaron Nonaka",
+      "value": "nonakaa"
+    },
+    {
+      "name": "Leah-Mei Villanueva",
+      "value": "leahmei"
+    }
+  ]
+}

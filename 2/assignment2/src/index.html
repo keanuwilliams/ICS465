@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <title>Assignment #2</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script type="text/javascript" src="students.json"></script>
+</head>
+<body>
+    <div style="height: 100vh; align-items: center; justify-content: space-around" class="ui stackable two column grid container">
+        <div class="six wide column">
+            <h1>Assignment #2</h1>
+            <p>
+                Construct a webpage that splits a number of objects read from a file into <b>random groups of size <i>N</i></b> and display the groups within a table. You can choose the type of resource file. The user should be able to specify the groups of size <i>N</i> conveniently. While a random set of groups should be presented to the user initially, they should be able to make a new set of groups any time.
+            </p>
+            <div class="ui segment">
+                <div class="ui form" id="group-form">
+                    <h4 class="ui dividing header">ICS 465 Group Randomizer</h4>
+                    <div class="inline fields">
+                        <label>GroupSize</label>
+                        <input type="number" name="size" id="size" value="3" min="1">
+                        <div class="ui left pointing red basic large label" id="size error" style="display:none">
+                            Value must be greater than 0
+                        </div>
+                    </div>
+                    <button class="ui button" onclick="makeGroups()">Make Groups</button>
+                </div>
+            </div>
+        </div>
+        <div class="ten wide column">
+            <table class="ui celled table">
+                <thead>
+                <tr><th class="five wide">Group</th>
+                    <th class="eleven wide">Students</th></tr>
+                </thead>
+                <tbody id="groups">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    // Gets form data, then calls shuffle() to make
+    // randomized groups to be displayed in an HTML table.
+    // By Alton Lee, Aaron Geronimo, and Keanu Williams
+    function makeGroups() {
+        var input; var output;
+        var group_size = document.getElementById("size").value; // get group size from form
+        console.log("group_size = " + group_size); // print the size of the groups from the form to the console
+        try { // try and read from json file and execute code to shuffle and make groups
+            if (group_size < 1) {
+                console.error("ERROR: group size must be bigger than 0."); // print error to console
+                document.getElementById("size error").style.display = "inline-block"; // place error label
+            }
+            else {
+                document.getElementById("size error").style.display = "none"; // remove error label
+                input = json.data; // get data from json file
+                console.log(input); // print input to console
+                input = shuffle(input); // shuffle the input
+                console.log(input); // print input to console after shuffle
+                output = groupify(input, group_size); // create the groups
+                console.log(output); // print array of groups to console
+
+                // create the HTML to be added to the code above
+                var row = "";
+                for (var i = 0; i < output.length; i++) {
+                    row += "<tr>\n<td>Group "+(i+1)+"</td><td>"
+                    for (var j = 0; j < output[i].length; j++) {
+                        if (j == output[i].length-1) { // if it is the last student
+                            row += output[i][j].name + " (" + output[i][j].value + ")"; // add the last student
+                        }
+                        else { // if it is not the last student
+                            row += output[i][j].name + " (" + output[i][j].value + ") <br> "; // add the student and make a new line
+                        }
+                    }
+                    row += "</td>\n</tr>" + "\n"; // finish adding table
+                }
+                $("#groups").html(row); // place in html
+            }
+        }
+        catch(err) {
+            console.error(err); // print the error that was caught
+        }
+    }
+    // Shuffles an array in place. Based on Fisher-Yates shuffle algorithm.
+    // By Keanu Williams
+    function shuffle(array) {
+        var temp, j;
+        var copy = [...array]; // make a deep copy of the array without changing the initial array
+        for (var i = copy.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1)); // find a random number
+            temp = copy[i]; // take value at current index
+            copy[i] = copy[j]; // take value at random index and swap with value at current index
+            copy[j] = temp; // place value at current index at the random index
+        }
+        return copy; // return the shuffled array
+    }
+    // Creates groups of size N.
+    // By Aaron Geronimo
+    function groupify(array, group_size) {
+        var list_of_groups = []; // create empty array
+        var size = parseInt(group_size); // store the int from parameter since parameter is a string
+        for (var i = 0; i < array.length; i += size) {
+            list_of_groups.push(array.slice(i, i+size)); // push sub array into new array
+        }
+        return list_of_groups; // return array of sub arrays
+    }
+</script>

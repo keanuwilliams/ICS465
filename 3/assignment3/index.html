@@ -1,0 +1,135 @@
+<!--Template originally from https://semantic-ui.com/examples/homepage.html modified by Keanuikapomekahaahaa Williams-->
+<!--and Hoku Tobin for educational purposes.-->
+
+<!--Class ICS 465: Assignment 3: Principles of UI-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="shortcut icon" href="https://www.hawaii.edu/its/wp-content/themes/system2018/images/icon.png">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Help Desk | Information Technology Services</title>
+</head>
+<body>
+
+<!-- Page Contents -->
+<!--Menu that would be the main menu to connect this page to other parts of hawaii.edu-->
+<div class="pusher">
+    <div class="ui inverted vertical masthead center aligned segment">
+        <div class="ui container">
+            <div class="ui large secondary inverted menu">
+                <a class="item"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/35/University_of_Hawaii_seal.svg/1200px-University_of_Hawaii_seal.svg.png"></a>
+                <a href="https://www.hawaii.edu/calendar/" class="item">Calendar</a>
+                <a href="https://www.hawaii.edu/directory/" class="item">Directory</a>
+                <a href="https://myuh.hawaii.edu/" class="item">MyUH</a>
+                <a href="http://workatuh.hawaii.edu/" class="item">Work at UH</a>
+                <div class="right item">
+                    <div class="ui inverted right icon input">
+                        <input type="text" placeholder="Search the site...">
+                        <i class="search icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu that would connect this page to other parts of ITS-->
+        <div class="ui container">
+            <div class="ui inverted secondary pointing menu">
+                <a class="active item">Help Desk</a>
+                <a class="item">Services</a>
+                <a class="item">Information Security</a>
+                <a class="item">Alerts</a>
+                <a class="item">About</a>
+                <a class="item">Ask Us</a>
+                <a class="item">Contact ITS</a>
+            </div>
+        </div>
+
+        <!-- This is to immediately capture the attention of the user by prompting them to ask a question-->
+        <div class="ui text container">
+            <div class="ten wide column">
+                <h1 class="ui huge inverted header" style="padding-bottom: 25px">UH Help Desk</h1>
+                <div class="ui large fluid input focus">
+                    <input id="question" type="text" placeholder="You have a question?">
+                </div>
+                <br>
+                <div class="ui huge primary button">Ask Us</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- This is to allow the user to easily see what resources of the help desk can be used and are available-->
+    <div class="ui vertical stripe segment">
+        <div class="ui middle aligned stackable grid container">
+            <div class="five wide column">
+                <h3 class="ui header">24/7 Phone and Email Support</h3>
+                <p>Phone: (808) 956-8883</p>
+                <p>Toll Free: (800) 558-2669</p>
+                <p>Fax: (808) 956-2108</p>
+                <p>Email: <a href="mailto:help@hawaii.edu">help@hawaii.edu</a></p>
+            </div>
+            <div class="six wide column"></div>
+            <div class="five wide column">
+                <h3 class="ui header">Walk-In Support <br>(Mānoa Campus)</h3>
+                <p>Information Technology Center [<a href="http://manoa.hawaii.edu/campusmap/">map</a>]<br>
+                    2520 Correa Road<br>
+                    Honolulu, Hawaiʻi 96822</p>
+                <p>Mon-Fri: 8:00am - 4:30pm</p>
+                <p>Not available on Holidays</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer with additional information-->
+<div class="ui inverted vertical footer segment">
+    <div class="ui container">
+        <div class="ui stackable inverted divided equal height stackable grid">
+            <div class="four wide column">
+                <a href="https://www.hawaii.edu/" target="_blank"><img class="ui medium image" style="padding-right: 15px" src="https://www.hawaii.edu/its/wp-content/themes/system2018/images/footer-logo-2x.png"></a>
+                <p style="padding-top: 15px">
+                    2444 Dole Street <br>
+                    Honolulu, HI 96822</p>
+            </div>
+            <div class="four wide column">
+                <a href="https://www.hawaii.edu/offices/eeo/policies/" target="_blank" style="color: white">An <b>equal opportunity/affirmative action</b> institution</a>. <br>
+                Use of this site implies consent with our <a href="https://www.hawaii.edu/infotech/policies/itpolicy.html" target="_blank" style="color: white"><b>Usage Policy</b></a>. <br>
+                <i class="copyright outline icon"></i>2018 <a href="https://www.hawaii.edu/" target="_blank" style="color: white"><b>University of Hawai'i</b></a>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">About</h4>
+                <div class="ui inverted link list">
+                    <a href="https://www.hawaii.edu/calendar/" class="item">Calendar</a>
+                    <a href="https://www.hawaii.edu/directory/" class="item">Directory</a>
+                    <a href="https://myuh.hawaii.edu/" class="item">MyUH</a>
+                    <a href="http://workatuh.hawaii.edu/" class="item">Work at UH</a>
+                </div>
+            </div>
+            <div class="four wide column">
+                <div class="row">
+                    <a href="https://twitter.com/UHawaiiNews" style="color: white"><i class="large twitter icon"></i></a>
+                    <a href="https://www.facebook.com/universityofhawaii" style="color: white"><i class="large facebook icon"></i></a>
+                    <a href="https://instagram.com/uhawaiinews/" style="color: white"><i class="large instagram icon"></i></a>
+                    <a href="http://www.flickr.com/photos/uhawaii" style="color: white"><i class="large flickr icon"></i></a>
+                    <a href="https://www.youtube.com/user/uhmagazine" style="color: white"><i class="large youtube icon"></i></a>
+                </div>
+                <div class="row">
+                    <br><a href="https://www.hawaii.edu/contact/" target="_blank" style="color: white;text-decoration: underline">Contact UH</a> <br>
+                    If required, information contained on this website can be made available in an alternate format upon request.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+<!-- Places keyboard cursor at question text field when page loads -->
+<script type="text/javascript">document.getElementById("question").focus();</script>
+</html>
