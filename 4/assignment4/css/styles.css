@@ -1,0 +1,51 @@
+:root {
+    --space: 1.5em 0;
+    --space: 2em 0;
+}
+
+.site {
+    display: flex;
+    background-color: whitesmoke;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-content {
+    flex: 1 0 auto;
+    padding: var(--space) var(--space) 0;
+    width: 100%;
+}
+
+.site-content:after {
+    content: '\00a0';
+    display: block;
+    margin-top: var(--space);
+    height: 0;
+    visibility: hidden;
+}
+
+#graph-content{
+    overflow-x: scroll;
+    width: auto;
+    white-space: nowrap;
+}
+
+.line {
+    fill: none;
+    stroke: green;
+    stroke-width: 5px;
+}
+
+.bar {
+    fill: steelblue;
+    opacity: 1.0;
+}
+
+.bar:hover {
+    opacity: 0.5;
+}
+
+.label {
+    fill: black;
+    font: 10px sans-serif;
+}
