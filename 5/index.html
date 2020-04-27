@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<style>
+    .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    }
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+    textarea {
+    width: 95%;
+    height: 350px;
+    resize: none;
+    border: solid 2px black;
+    }
+    #top {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+</style>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <title>Assignment 5</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+        <script async="" src="https://www.google-analytics.com/analytics.js"></script>
+    </head>
+    <body>
+        <div id="top" align="center">
+            <h1>Assignment 5 Copy and Paste</h1>
+            <div class="row">
+                <button type="button" onclick="CopyThis()">Copy</button>
+                <button type="button" onclick="CutThis()">Cut</button>
+                <button type="button" onclick="PasteThis()">Paste</button>
+                <button id="copy">Copy Clipboard</button>
+            </div>
+        </div>
+        <div class="ui centered grid">
+                <div class="four wide column">
+                  <h2>
+                      Insert Text Here
+                  </h2>
+                    <textarea id="text_1">One afternoon at the park, you’re sitting on a bench and watching the empty
+                    merry-go-round which is still spinning from the last children to use it. You think “wow,
+                    that thing must have really good bearings because it’s not slowing down noticeably.”
+                    So, you decide to time it. Just as soon as you determine that it’s doing one revolution
+                    every 3.5 seconds, you see a child run, jump, and grab onto the outside edge of the
+                    merry-go-round. Then, you remeasure the period (of merry-go-round + child) and find
+                    that it is now 2.5 seconds. Since the period decreased, was the child running with, or
+                    against, the direction of rotation? Suppose the merry-go-round has a radius of 1.5 m
+                    and weighs twice as much as the child. What was the initial velocity of the child before
+                    jumping onto the merry-go-round? You can assume the merry-go-round is a solid disk
+                    with moment of inertia I =
+                    1
+                    2mR2 about its axis of rotation, and that the child jumps
+                    on purely in the tangential direction.
+                    </textarea>
+                </div>
+                <div class="four wide column">
+                    <h2>
+                        Clipboard
+                    </h2>
+                    <textarea id="clip"></textarea>
+                </div>
+                <div class="four wide column">
+                  <h2>
+                      Paste Here
+                  </h2>
+                    <textarea id="text_2"></textarea>
+                </div>
+        </div>
+    </body>
+</html>
+<script>
+    const sourceText1 = document.getElementById("text_1");
+
+    const sourceText2 = document.getElementById("text_2");
+
+    sourceText1.addEventListener('copy', DoThis);
+
+    sourceText1.addEventListener('cut', DoThis);
+
+    sourceText1.addEventListener('paste', Pastethis1);
+
+    sourceText2.addEventListener('copy', DoThis);
+
+    sourceText2.addEventListener('cut', DoThis);
+
+    function DoThis() {
+
+        let selection = document.getSelection();
+
+        console.log(selection);
+
+        document.getElementById("clip").innerHTML += selection + "\n";
+
+    }
+
+    function Pastethis1() {
+
+        sourceText1.preventDefault();
+
+        let clip = document.getElementById("clip").innerHTML;
+
+        document.getElementById("clip").innerHTML += clip + "\n";
+
+    }
+
+    function CopyThis() {
+
+        document.execCommand("copy");
+
+    }
+
+    function CutThis() {
+
+        document.execCommand("cut");
+
+    }
+
+    function PasteThis() {
+
+      navigator.clipboard.readText()
+
+      //need to fix this line for paste to work properly
+
+          .then(text => {
+
+            document.querySelector('#text_2').value = text;
+
+          })
+
+    }
+
+    //copy from Clipboard
+
+    document.querySelector('#copy').addEventListener('click', () => {
+
+      navigator.clipboard.writeText(document.querySelector('#clip').value)
+
+
+
+    });
+
+    //paste from Clipboard to textarea 1
+
+    document.querySelector('#paste1').addEventListener('click', () => {
+
+      navigator.clipboard.readText()
+
+      //need to fix this line for paste to work properly
+
+          .then(text => {
+
+            document.querySelector('#text_1').value = text;
+
+          })
+
+
+
+    });
+
+
+
+    //paste from Clipboard to textarea 2
+
+    document.querySelector('#paste2').addEventListener('click', () => {
+
+      navigator.clipboard.readText()
+
+      //need to fix this line for paste to work properly
+
+          .then(text => {
+
+            document.querySelector('#text_2').value = text;
+
+          })
+
+
+
+    });
+
+
+
+    document.addEventListener('paste', e => {
+
+      e.preventDefault();
+
+    });
+
+
+
+
+
+</script>
